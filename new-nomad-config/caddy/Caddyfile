@@ -1,0 +1,15 @@
+{
+  email admin@abc.com
+  admin 127.0.0.1:2021
+  auto_https off
+}
+
+:8080 {
+  # This is just a basic health check route
+  respond /health "Nomad Caddy is running" 200
+
+  # Placeholder route array — Nomad's update_routes.sh will inject reverse_proxy routes here dynamically
+  handle {
+    respond "No route matched. Caddy is up but route not found." 404
+  }
+}
